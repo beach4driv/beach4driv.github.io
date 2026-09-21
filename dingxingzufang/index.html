@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="定兴租房信息平台，提供定兴县最新二手房出租、整租、合租、公寓及小区房源信息，包含租金价格、户型、楼层及联系方式，助您快速找到理想的居住空间。">
+    <meta name="keywords" content="定兴租房信息,定兴租房,定兴二手房出租,定兴房屋出租,定兴公寓租赁">
+    <title>定兴租房信息 - 本地优质房源与租赁服务指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .header-actions .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #d35400;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-box {
+            background: white;
+            padding: 10px;
+            border-radius: 50px;
+            display: inline-flex;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .search-box select, .search-box input {
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            outline: none;
+            flex: 1;
+        }
+
+        .search-box button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 40px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background-color: #d35400;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+        }
+
+        /* Sidebar */
+        aside {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .filter-group {
+            margin-bottom: 25px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .checkbox-item input {
+            margin-right: 8px;
+        }
+
+        .price-range {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .price-range input {
+            width: 100%;
+        }
+
+        /* Listings */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .view-options a {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-left: 15px;
+        }
+
+        .view-options a.active {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #eef2f5;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tag:hover, .tag.active {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .listing-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+        .listing-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card-img {
+            width: 240px;
+            height: 180px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-title .price {
+            color: var(--accent-color);
+            font-size: 20px;
+        }
+
+        .card-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.5;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .card-features {
+            display: flex;
+            gap: 10px;
+        }
+
+        .feature-tag {
+            font-size: 12px;
+            background: #f8f9fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #666;
+        }
+
+        .card-features .feature-tag.hot {
+            background: #fff3e0;
+            color: #e67e22;
+        }
+
+        .contact-btn {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 600;
+            border: 1px solid var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 40px;
+        }
+
+        .page-link {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            background: white;
+            border: 1px solid #eee;
+            color: var(--text-main);
+            transition: all 0.2s;
+        }
+
+        .page-link.active, .page-link:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: white;
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-radius: var(--border-radius);
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .guide-item {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+        }
+
+        .guide-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .guide-item h3 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .guide-item p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .listing-card {
+                flex-direction: column;
+            }
+
+            .card-img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .header-inner {
+                padding: 0 15px;
+            }
+
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+            
+            .header-actions {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span>🏠</span> 定兴租房
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">最新房源</a></li>
+                    <li><a href="#">整租</a></li>
+                    <li><a href="#">合租</a></li>
+                    <li><a href="#">小区房源</a></li>
+                    <li><a href="#">出租攻略</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">发布房源</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>寻找您在定兴的理想家园</h1>
+        <p>海量真实房源，从公寓到别墅，满足您不同的居住需求。</p>
+        <div class="search-box">
+            <select>
+                <option>全部区域</option>
+                <option>定兴县城</option>
+                <option>天宫寺镇</option>
+                <option>柳卓乡</option>
+                <option>北田乡</option>
+                <option>高里乡</option>
+            </select>
+            <select>
+                <option>全部类型</option>
+                <option>整租</option>
+                <option>合租</option>
+                <option>单间</option>
+                <option>公寓</option>
+            </select>
+            <input type="text" placeholder="输入小区名称或地址...">
+            <button>搜索</button>
+        </div>
+    </section>
+
+    <div class="container">
+        <aside>
+            <h3 class="sidebar-title">筛选条件</h3>
+            
+            <div class="filter-group">
+                <label>租金范围 (元/月)</label>
+                <div class="price-range">
+                    <input type="number" placeholder="最低" style="width: 45%;">
+                    <span>-</span>
+                    <input type="number" placeholder="最高" style="width: 45%;">
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>户型</label>
+                <div class="checkbox-item">
+                    <input type="checkbox" checked> <span>一室</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" checked> <span>两室</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox"> <span>三室及以上</span>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>房屋类型</label>
+                <div class="checkbox-item">
+                    <input type="checkbox"> <span>普通住宅</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox"> <span>公寓</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox"> <span>别墅</span>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>楼层</label>
+                <div class="checkbox-item">
+                    <input type="checkbox"> <span>低层(1-3层)</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox"> <span>中层(4-6层)</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox"> <span>高层</span>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>配套设施</label>
+                <div class="checkbox-item">
+                    <input type="checkbox"> <span>电梯</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox"> <span>停车位</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox"> <span>家具家电</span>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <div class="section-header">
+                <h2>最新发布房源</h2>
+                <div class="view-options">
+                    <a href="#" class="active">综合排序</a>
+                    <a href="#">最新上架</a>
+                    <a href="#">价格从低</a>
+                    <a href="#">价格从高</a>
+                </div>
+            </div>
+
+            <div class="filter-tags">
+                <span class="tag active">全部</span>
+                <span class="tag">近地铁</span>
+                <span class="tag">随时看房</span>
+                <span class="tag">精装修</span>
+                <span class="tag">拎包入住</span>
+            </div>
+
+            <!-- Listing Card 1 -->
+            <article class="listing-card">
+                <img src="https://picsum.photos/seed/house1/240/180" alt="定兴两居室出租" class="card-img">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>金湖湾小区 2室1厅 南北通透</span>
+                        <span class="price">¥ 1,200/月</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>🏠 2室1厅</span>
+                        <span>📐 85㎡</span>
+                        <span>🏢 高层/11层</span>
+                        <span>📅 2023-10-15</span>
+                    </div>
+                    <p class="card-desc">位于定兴县城核心地段，金湖湾小区，交通便利，紧邻公交站。房屋南北通透，采光极佳。精装修，家电齐全，拎包即可入住。适合上班族或小家庭居住。</p>
+                    <div class="card-footer">
+                        <div class="card-features">
+                            <span class="feature-tag hot">近地铁</span>
+                            <span class="feature-tag">精装</span>
+                            <span class="feature-tag">家电全</span>
+                        </div>
+                        <a href="#" class="contact-btn">联系房东</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Listing Card 2 -->
+            <article class="listing-card">
+                <img src="https://picsum.photos/seed/house2/240/180" alt="定兴一居室出租" class="card-img">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>幸福里公寓 单间卧室 独立卫浴</span>
+                        <span class="price">¥ 600/月</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>🏠 1室0厅</span>
+                        <span>📐 35㎡</span>
+                        <span>🏢 中层/5层</span>
+                        <span>📅 2023-10-14</span>
+                    </div>
+                    <p class="card-desc">幸福里公寓全新装修，配备空调、热水器、洗衣机。小区环境优美，安保严格。适合单身人士或情侣居住，生活非常方便。</p>
+                    <div class="card-footer">
+                        <div class="card-features">
+                            <span class="feature-tag">拎包入住</span>
+                            <span class="feature-tag">独立卫浴</span>
+                            <span class="feature-tag">近超市</span>
+                        </div>
+                        <a href="#" class="contact-btn">联系房东</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Listing Card 3 -->
+            <article class="listing-card">
+                <img src="https://picsum.photos/seed/house3/240/180" alt="定兴三居室出租" class="card-img">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>怡和家园 3室2厅 大两居</span>
+                        <span class="price">¥ 1,800/月</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>🏠 3室2厅</span>
+                        <span>📐 120㎡</span>
+                        <span>🏢 低层/3层</span>
+                        <span>📅 2023-10-13</span>
+                    </div>
+                    <p class="card-desc">大两居格局，动静分区合理。客厅宽敞，主卧朝南。适合有孩子的家庭或合租室友。小区绿化率高，停车方便。</p>
+                    <div class="card-footer">
+                        <div class="card-features">
+                            <span class="feature-tag">随时看房</span>
+                            <span class="feature-tag">停车方便</span>
+                            <span class="feature-tag">环境好</span>
+                        </div>
+                        <a href="#" class="contact-btn">联系房东</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Listing Card 4 -->
+            <article class="listing-card">
+                <img src="https://picsum.photos/seed/house4/240/180" alt="定兴合租单间" class="card-img">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>宏润小区 合租主卧 采光好</span>
+                        <span class="price">¥ 800/月</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>🏠 主卧</span>
+                        <span>📐 20㎡</span>
+                        <span>🏢 中层/8层</span>
+                        <span>📅 2023-10-12</span>
+                    </div>
+                    <p class="card-desc">宏润小区合租，主卧独立卫生间。室友素质高，作息规律。公共区域干净整洁，有独立厨房和客厅。价格实惠，性价比极高。</p>
+                    <div class="card-footer">
+                        <div class="card-features">
+                            <span class="feature-tag">合租</span>
+                            <span class="feature-tag">独立卫浴</span>
+                            <span class="feature-tag">安静</span>
+                        </div>
+                        <a href="#" class="contact-btn">联系房东</a>
+                    </div>
+                </div>
+            </article>
+
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">...</a>
+                <a href="#" class="page-link">10</a>
+                <a href="#" class="page-link">&gt;</a>
+            </div>
+        </main>
+    </div>
+
+    <section class="guide-section">
+        <div style="text-align: center;">
+            <h2>定兴租房攻略与指南</h2>
+            <p style="color: #666; margin-top: 10px;">帮助您安全、顺利地找到满意的住所</p>
+        </div>
+        <div class="guide-grid">
+            <div class="guide-item">
+                <span class="guide-icon">🛡️</span>
+                <h3>核实身份与房源</h3>
+                <p>在看房前请务必核实房东身份及房产证原件，警惕虚假房源和钓鱼链接。</p>
+            </div>
+            <div class="guide-item">
+                <span class="guide-icon">📝</span>
+                <h3>签订正规合同</h3>
+                <p>租房时请签订书面租赁合同，明确租金、押金、维修责任及违约条款。</p>
+            </div>
+            <div class="guide-item">
+                <span class="guide-icon">🔍</span>
+                <h3>检查房屋状况</h3>
+                <p>入住前仔细检查家具家电是否完好，水电燃气设施是否正常，并拍照留底。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">平台介绍</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">联系方式</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>租房服务</h4>
+                <ul>
+                    <li><a href="#">个人房源</a></li>
+                    <li><a href="#">品牌公寓</a></li>
+                    <li><a href="#">企业合租</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">租房指南</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">安全提示</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <p>获取最新房源动态与优惠信息</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 定兴租房信息平台 版权所有</p>
+        </div>
+    </footer>
+
+</body>
+                  </html>
