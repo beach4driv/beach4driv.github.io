@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="u9dnf超级助手下载官方页面。提供u9dnf超级助手最新版下载、安装教程、版本更新日志及安全检测报告。专为DNF玩家打造的一键辅助工具，包含自动刷图、装备管理、金币统计等实用功能。">
+    <meta name="keywords" content="u9dnf超级助手下载, u9dnf助手, DNF辅助工具, u9dnf最新版, DNF辅助下载">
+    <title>u9dnf超级助手下载 - DNF玩家必备一键辅助工具与版本更新</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff9800;
+            --primary-hover: #f57c00;
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --bg-header: #181818;
+            --text-main: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border-color: #333;
+            --success-color: #4caf50;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-header);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .download-btn-nav {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .download-btn-nav:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1a10 100%);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ff9800, #ff5722);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .main-download-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .version-badge {
+            background: #333;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .download-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            color: var(--text-main);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Version & Update List */
+        .update-section {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .update-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
+        }
+
+        .update-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .update-version {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .update-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .update-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Safety & Warning */
+        .warning-box {
+            background: rgba(255, 152, 0, 0.1);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .warning-icon {
+            font-size: 1.5rem;
+        }
+
+        .warning-text h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .warning-text p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 15px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-header);
+            border-top: 1px solid var(--border-color);
+            padding: 50px 20px 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .download-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span>u9dnf超级助手下载</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#features">功能介绍</a></li>
+                    <li><a href="#updates">版本更新</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#download" class="download-btn-nav">立即下载</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="download">
+            <div class="hero-content">
+                <div class="version-badge">当前版本 v2.8.0 (稳定版)</div>
+                <h1>u9dnf超级助手下载</h1>
+                <p>专为DNF玩家打造的一键辅助工具，告别繁琐操作，轻松享受游戏乐趣。安全稳定，功能全面，提升您的游戏体验。</p>
+                
+                <div class="main-download-card">
+                    <div style="margin-bottom: 10px; color: var(--text-secondary); font-size: 0.9rem;">点击下方按钮开始下载</div>
+                    <div class="download-actions">
+                        <a href="#" class="btn btn-primary" onclick="alert('正在跳转到官方下载页面...'); return false;">
+                            PC版下载
+                        </a>
+                        <a href="#" class="btn btn-outline">
+                            查看更新日志
+                        </a>
+                    </div>
+                    <div style="margin-top: 15px; font-size: 0.8rem; color: #666; display: flex; justify-content: center; gap: 15px;">
+                        <span>支持Win7/Win10/Win11</span>
+                        <span>|</span>
+                        <span>无毒无广告</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Safety Warning -->
+            <div class="warning-box">
+                <div class="warning-icon">⚠️</div>
+                <div class="warning-text">
+                    <h4>安全提示</h4>
+                    <p>请在官方渠道进行 <strong>u9dnf超级助手下载</strong>。本工具仅供玩家娱乐参考，请勿用于非法牟利或破坏游戏公平性。下载前请务必使用杀毒软件进行扫描。</p>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <section id="features">
+                <h2 class="section-title">核心功能介绍</h2>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>一键智能刷图</h3>
+                        <p>内置智能识别算法，自动识别怪物弱点，一键完成地下城通关，解放双手。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🎒</div>
+                        <h3>装备管理助手</h3>
+                        <p>实时扫描背包与仓库，自动整理装备，一键分解低级装备，优化存储空间。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>数据统计分析</h3>
+                        <p>详细记录角色成长数据，包括金币收益、副本通关时间及装备强化成功率。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">⚙️</div>
+                        <h3>自定义脚本设置</h3>
+                        <p>支持玩家自定义辅助规则，根据个人操作习惯调整技能释放节奏。</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Updates -->
+            <section id="updates">
+                <h2 class="section-title">最新版本更新</h2>
+                <div class="update-section">
+                    <div class="update-item">
+                        <div class="update-header">
+                            <span class="update-version">v2.8.0</span>
+                            <span class="update-date">2023-10-15</span>
+                        </div>
+                        <div class="update-desc">
+                            1. 优化了副本识别速度，修复了在特定地图下卡顿的问题。<br>
+                            2. 新增一键换装功能，支持自动穿戴节日套。<br>
+                            3. 修复了部分玩家登录失败的安全提示。
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-header">
+                            <span class="update-version">v2.7.5</span>
+                            <span class="update-date">2023-09-28</span>
+                        </div>
+                        <div class="update-desc">
+                            1. 更新了最新版本的DNF客户端兼容性。<br>
+                            2. 优化了UI界面显示，修复了高分屏模糊问题。
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-header">
+                            <span class="update-version">v2.7.0</span>
+                            <span class="update-date">2023-09-10</span>
+                        </div>
+                        <div class="update-desc">
+                            1. 首次上线，包含基础自动刷图与装备整理功能。<br>
+                            2. 完善的用户帮助文档与社区支持。
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq" class="faq-section">
+                <h2 class="section-title">常见问题解答</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">u9dnf超级助手下载后需要安装什么环境？</div>
+                    <div class="faq-answer">
+                        <p>下载安装包后，直接运行安装程序即可。软件体积较小，且自带运行库检测，支持Windows 7及以上版本的操作系统。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">使用助手会影响账号安全吗？</div>
+                    <div class="faq-answer">
+                        <p>本工具采用纯本地脚本运行，不涉及外挂登录或修改游戏内存数据，正常使用不会导致账号封禁。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">如何获取最新版的u9dnf超级助手下载地址？</div>
+                    <div class="faq-answer">
+                        <p>请关注本站首页的“版本更新”栏目，我们会第一时间发布最新版本号及下载链接。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 15px;">
+                    <span>u9dnf超级助手</span>
+                </div>
+                <p style="color: #666; font-size: 0.9rem;">
+                    专注DNF玩家体验，提供最便捷的游戏辅助工具与服务。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">回到首页</a></li>
+                    <li><a href="#features">功能介绍</a></li>
+                    <li><a href="#updates">版本更新</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">安装教程</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">使用协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">团队介绍</a></li>
+                    <li><a href="#">合作招募</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 u9dnf助手. All Rights Reserved. 仅供学习交流使用，请勿用于商业用途。</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
